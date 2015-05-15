@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: Ios | GJ's Blog]]></title>
+  <link href="http://blog.wugaojun.com/blog/categories/ios/atom.xml" rel="self"/>
+  <link href="http://blog.wugaojun.com/"/>
+  <updated>2015-05-15T11:51:33+08:00</updated>
+  <id>http://blog.wugaojun.com/</id>
+  <author>
+    <name><![CDATA[吴高君]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[学习资料整理]]></title>
+    <link href="http://blog.wugaojun.com/blog/xue-xi-zi-liao-zheng-li/"/>
+    <updated>2015-05-14T10:15:18+08:00</updated>
+    <id>http://blog.wugaojun.com/blog/xue-xi-zi-liao-zheng-li</id>
+    <content type="html"><![CDATA[<ul id="markdown-toc">
+  <li><a href="#section" id="markdown-toc-section">1.动画</a></li>
+</ul>
+
+<p>在学习的过程中，会时不时的收藏一些好的资料或者库。但是随着时间的推移，下次要用的时候又要去找一遍，自己放在本地又不知道放哪个文件夹了。遂决定在此进行备忘，以便查阅。</p>
+
+<!-- more -->
+
+<h2 id="section">1.动画</h2>
+<p>库:</p>
+
+<p>pop:facebook开源的动画库，相当牛逼<a href="https://github.com/facebook/pop">https://github.com/facebook/pop</a></p>
+
+<p>学习视频:</p>
+
+<p><a href="http://www.hcxy.me/course/16">http://www.hcxy.me/course/16</a></p>
+]]></content>
+  </entry>
+  
+</feed>

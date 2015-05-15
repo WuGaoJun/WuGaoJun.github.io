@@ -1,0 +1,187 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: Swift | GJ's Blog]]></title>
+  <link href="http://blog.wugaojun.com/blog/categories/swift/atom.xml" rel="self"/>
+  <link href="http://blog.wugaojun.com/"/>
+  <updated>2015-05-15T11:51:33+08:00</updated>
+  <id>http://blog.wugaojun.com/</id>
+  <author>
+    <name><![CDATA[吴高君]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Swift之UITableView的使用]]></title>
+    <link href="http://blog.wugaojun.com/blog/ru-he-da-jian-bo-ke/"/>
+    <updated>2015-05-01T14:24:20+08:00</updated>
+    <id>http://blog.wugaojun.com/blog/ru-he-da-jian-bo-ke</id>
+    <content type="html"><![CDATA[<ul id="markdown-toc">
+  <li><a href="#tableview" id="markdown-toc-tableview">1.创建tableView</a></li>
+  <li><a href="#section" id="markdown-toc-section">2.准备假数据</a></li>
+  <li><a href="#section-1" id="markdown-toc-section-1">3.实现协议方法</a></li>
+  <li><a href="#section-2" id="markdown-toc-section-2">4.增加左滑删除功能</a></li>
+</ul>
+
+<h2 id="tableview">1.创建tableView</h2>
+<p>Swift和OC中UITableView的使用基本是差不多，只是有一些语法上的差异。下面我们一步一步从0开始写一个tableView。
+<!-- more --></p>
+
+<p><figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+<span class='line-number'>24</span>
+</pre></td><td class='code'><pre><code class='objc'><span class='line'><span class="n">import</span> <span class="n">UIKit</span><span class="o">&lt;/</span><span class="n">p</span><span class="o">&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="o">&lt;</span><span class="n">p</span><span class="o">&gt;</span><span class="n">let</span> <span class="n">ID</span> <span class="o">=</span> <span class="err">“</span><span class="n">Cell</span><span class="err">”</span> <span class="c1">//cell的ID，建议像这样写一个常量，不要直接使用”Cell”&lt;/p&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="o">&lt;</span><span class="n">p</span><span class="o">&gt;</span><span class="k">class</span> <span class="nl">ViewController</span><span class="p">:</span> <span class="bp">UIViewController</span><span class="p">,</span> <span class="bp">UITableViewDataSource</span><span class="p">,</span> <span class="bp">UITableViewDelegate</span> <span class="p">{</span> <span class="c1">//0.遵守协议&lt;/p&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="o">&lt;</span><span class="n">pre</span><span class="o">&gt;&lt;</span><span class="n">code</span><span class="o">&gt;</span><span class="n">override</span> <span class="n">func</span> <span class="n">viewDidLoad</span><span class="p">()</span> <span class="p">{</span>
+</span><span class='line'>    <span class="nb">super</span><span class="p">.</span><span class="n">viewDidLoad</span><span class="p">()</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="c1">//1.创建UITableView(跟OC几乎一样)</span>
+</span><span class='line'>    <span class="n">var</span> <span class="n">tableView</span> <span class="o">=</span> <span class="bp">UITableView</span><span class="p">(</span><span class="nl">frame</span><span class="p">:</span> <span class="n">view</span><span class="p">.</span><span class="n">bounds</span><span class="p">,</span> <span class="nl">style</span><span class="p">:</span> <span class="n">UITableViewStyle</span><span class="p">.</span><span class="n">Plain</span><span class="p">)</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="c1">//2.注册Cell</span>
+</span><span class='line'>    <span class="n">tableView</span><span class="p">.</span><span class="n">registerClass</span><span class="p">(</span><span class="bp">UITableViewCell</span><span class="p">.</span><span class="nb">self</span><span class="p">,</span> <span class="nl">forCellReuseIdentifier</span><span class="p">:</span> <span class="n">ID</span><span class="p">)</span>
+</span><span class='line'>    <span class="c1">//下面这种写法也是可以的</span>
+</span><span class='line'>    <span class="c1">//tableView.registerClass(UITableViewCell.classForCoder(), forCellReuseIdentifier: ID)</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="c1">//3.设置数据源和代理</span>
+</span><span class='line'>    <span class="n">tableView</span><span class="p">.</span><span class="n">dataSource</span> <span class="o">=</span> <span class="nb">self</span>
+</span><span class='line'>    <span class="n">tableView</span><span class="p">.</span><span class="n">delegate</span> <span class="o">=</span> <span class="nb">self</span><span class="p">;</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="c1">//4.添加到view中</span>
+</span><span class='line'>    <span class="nb">self</span><span class="p">.</span><span class="n">view</span><span class="p">.</span><span class="n">addSubview</span><span class="p">(</span><span class="n">tableView</span><span class="p">)</span>
+</span><span class='line'><span class="p">}</span> <span class="p">}</span>
+</span></code></pre></td></tr></table></div></figure> 注意:1.协议的写法，不需要写&lt;&gt;。2.上面的代码中第0步和第3步会报错，不要惊慌，暂时无视，并不是代码有问题，是因为我们没有实现相应的协议方法。
+</code></pre>
+
+<h2 id="section">2.准备假数据</h2>
+
+<p><figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+</pre></td><td class='code'><pre><code class='objc'><span class='line'><span class="c1">// 懒加载</span>
+</span><span class='line'><span class="n">lazy</span> <span class="n">var</span> <span class="nl">datas</span><span class="p">:</span> <span class="p">[</span><span class="n">Int</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span>
+</span><span class='line'>    <span class="c1">// 创建一个存放int的数组</span>
+</span><span class='line'>    <span class="n">var</span> <span class="n">nums</span> <span class="o">=</span> <span class="o">&lt;</span><span class="n">a</span> <span class="n">href</span><span class="o">=</span><span class="s">&quot;&quot;</span><span class="o">&gt;</span><span class="n">Int</span><span class="o">&lt;/</span><span class="n">a</span><span class="o">&gt;</span>
+</span><span class='line'>    <span class="c1">// 添加数据</span>
+</span><span class='line'>    <span class="k">for</span> <span class="n">i</span> <span class="k">in</span> <span class="mi">0</span><span class="err">…</span><span class="mi">50</span> <span class="p">{</span>
+</span><span class='line'>        <span class="n">nums</span><span class="p">.</span><span class="n">append</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+</span><span class='line'>    <span class="p">}</span>
+</span><span class='line'>    <span class="c1">// 返回</span>
+</span><span class='line'>    <span class="k">return</span> <span class="n">nums</span>
+</span><span class='line'><span class="p">}()</span>
+</span></code></pre></td></tr></table></div></figure>
+这里采用懒加载，Swift的懒加载和OC差别还是比较大的，需要注意一下。</p>
+
+<h2 id="section-1">3.实现协议方法</h2>
+
+<p><figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+</pre></td><td class='code'><pre><code class='objc'><span class='line'><span class="c1">// MARK: - UITableViewDataSource &amp;amp; UITableViewDelegate&lt;/p&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="o">&lt;</span><span class="n">p</span><span class="o">&gt;</span><span class="n">func</span> <span class="n">tableView</span><span class="p">(</span><span class="nl">tableView</span><span class="p">:</span> <span class="bp">UITableView</span><span class="p">,</span> <span class="n">numberOfRowsInSection</span> <span class="nl">section</span><span class="p">:</span> <span class="n">Int</span><span class="p">)</span> <span class="o">-&amp;</span><span class="n">gt</span><span class="p">;</span> <span class="n">Int</span> <span class="p">{</span>
+</span><span class='line'>    <span class="c1">//返回有多少行Cell, 这里返回数组的count</span>
+</span><span class='line'>    <span class="k">return</span> <span class="n">datas</span><span class="p">.</span><span class="n">count</span>
+</span><span class='line'><span class="p">}</span><span class="o">&lt;/</span><span class="n">p</span><span class="o">&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="o">&lt;</span><span class="n">p</span><span class="o">&gt;</span><span class="n">func</span> <span class="n">tableView</span><span class="p">(</span><span class="nl">tableView</span><span class="p">:</span> <span class="bp">UITableView</span><span class="p">,</span> <span class="n">cellForRowAtIndexPath</span> <span class="nl">indexPath</span><span class="p">:</span> <span class="bp">NSIndexPath</span><span class="p">)</span> <span class="o">-&amp;</span><span class="n">gt</span><span class="p">;</span> <span class="bp">UITableViewCell</span> <span class="p">{</span>
+</span><span class='line'>    <span class="c1">// 获得cell</span>
+</span><span class='line'>    <span class="n">let</span> <span class="n">cell</span> <span class="o">=</span> <span class="n">tableView</span><span class="p">.</span><span class="n">dequeueReusableCellWithIdentifier</span><span class="p">(</span><span class="n">ID</span><span class="p">,</span> <span class="nl">forIndexPath</span><span class="p">:</span> <span class="n">indexPath</span><span class="p">)</span> <span class="n">as</span><span class="o">!</span> <span class="bp">UITableViewCell</span><span class="o">&lt;/</span><span class="n">p</span><span class="o">&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="o">&lt;</span><span class="n">pre</span><span class="o">&gt;&lt;</span><span class="n">code</span><span class="o">&gt;</span><span class="c1">// 配置cell</span>
+</span><span class='line'><span class="n">cell</span><span class="p">.</span><span class="n">textLabel</span><span class="o">!</span><span class="p">.</span><span class="n">text</span> <span class="o">=</span> <span class="s">&quot;假数据 - \(datas[indexPath.row])&quot;</span>
+</span><span class='line'>
+</span><span class='line'><span class="c1">// 返回cell</span>
+</span><span class='line'><span class="k">return</span> <span class="n">cell</span> <span class="p">}</span>
+</span></code></pre></td></tr></table></div></figure> 解释几个可能有点迷糊的地方:
+</code></pre>
+
+<p>　　1.as:这个东西比较符合人类思维。意思就是把什么当作什么，在上面的代码中，由于方法dequeueReusableCellWithIdentifier的返回值是AnyObject(也就是OC中的id类型)，所以需要通过as告诉编译器这实际上是一个UITableViewCell。</p>
+
+<p>　　2.!(感叹号):这玩意就是告诉编译器我确定这里的的cell.textLabel一定是非nil的, 可以放心的执行后面的。as后面的!也是一样的道理。</p>
+
+<p>至此，可以编译运行看看效果了.</p>
+
+<p><img src="/images/2015-05-11-ru-he-da-jian-bo-ke/swift_example_result_1.png" width="160" height="300"></p>
+
+<h2 id="section-2">4.增加左滑删除功能</h2>
+
+<p>实现一个方法即可</p>
+
+<p><figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+</pre></td><td class='code'><pre><code class='objc'><span class='line'><span class="c1">// 提交编辑操作</span>
+</span><span class='line'><span class="n">func</span> <span class="nf">tableView</span><span class="p">(</span><span class="nl">tableView</span><span class="p">:</span> <span class="bp">UITableView</span><span class="p">,</span> <span class="n">commitEditingStyle</span> <span class="nl">editingStyle</span><span class="p">:</span> <span class="n">UITableViewCellEditingStyle</span><span class="p">,</span>
+</span><span class='line'><span class="err">　　</span><span class="n">forRowAtIndexPath</span> <span class="nl">indexPath</span><span class="p">:</span> <span class="bp">NSIndexPath</span><span class="p">)</span> <span class="p">{</span>
+</span><span class='line'>     <span class="c1">// 如果是删除操作</span>
+</span><span class='line'>     <span class="k">if</span> <span class="n">editingStyle</span> <span class="o">==</span> <span class="p">.</span><span class="n">Delete</span> <span class="p">{</span>
+</span><span class='line'>         <span class="c1">// 从数组中移除对应位置的数据</span>
+</span><span class='line'>         <span class="n">datas</span><span class="p">.</span><span class="n">removeAtIndex</span><span class="p">(</span><span class="n">indexPath</span><span class="p">.</span><span class="n">row</span><span class="p">)</span>
+</span><span class='line'>         <span class="c1">// 删除表格中对应行的数据</span>
+</span><span class='line'>         <span class="n">tableView</span><span class="p">.</span><span class="n">deleteRowsAtIndexPaths</span><span class="p">([</span><span class="n">indexPath</span><span class="p">],</span> <span class="nl">withRowAnimation</span><span class="p">:</span> <span class="n">UITableViewRowAnimation</span><span class="p">.</span><span class="n">Fade</span><span class="p">)</span>
+</span><span class='line'>     <span class="p">}</span>
+</span><span class='line'><span class="p">}</span>
+</span></code></pre></td></tr></table></div></figure></p>
+
+<p>大功告成，运行看看效果吧。</p>
+]]></content>
+  </entry>
+  
+</feed>
