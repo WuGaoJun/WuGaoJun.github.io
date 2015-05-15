@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
   <title><![CDATA[Category: Ios | GJ's Blog]]></title>
-  <link href="http://blog.wugaojun.com/blog/categories/ios/atom.xml" rel="self"/>
-  <link href="http://blog.wugaojun.com/"/>
-  <updated>2015-05-15T13:19:25+08:00</updated>
-  <id>http://blog.wugaojun.com/</id>
+  <link href="http://www.wugaojun.com/blog/categories/ios/atom.xml" rel="self"/>
+  <link href="http://www.wugaojun.com/"/>
+  <updated>2015-05-15T13:21:32+08:00</updated>
+  <id>http://www.wugaojun.com/</id>
   <author>
     <name><![CDATA[吴高君]]></name>
     
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[学习资料整理]]></title>
-    <link href="http://blog.wugaojun.com/blog/xue-xi-zi-liao-zheng-li/"/>
+    <link href="http://www.wugaojun.com/blog/xue-xi-zi-liao-zheng-li/"/>
     <updated>2015-05-14T10:15:18+08:00</updated>
-    <id>http://blog.wugaojun.com/blog/xue-xi-zi-liao-zheng-li</id>
+    <id>http://www.wugaojun.com/blog/xue-xi-zi-liao-zheng-li</id>
     <content type="html"><![CDATA[<ul id="markdown-toc">
   <li><a href="#section" id="markdown-toc-section">1.动画</a></li>
 </ul>

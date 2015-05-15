@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
   <title><![CDATA[Category: 工具 | GJ's Blog]]></title>
-  <link href="http://blog.wugaojun.com/blog/categories/gong-ju/atom.xml" rel="self"/>
-  <link href="http://blog.wugaojun.com/"/>
-  <updated>2015-05-15T13:19:25+08:00</updated>
-  <id>http://blog.wugaojun.com/</id>
+  <link href="http://www.wugaojun.com/blog/categories/gong-ju/atom.xml" rel="self"/>
+  <link href="http://www.wugaojun.com/"/>
+  <updated>2015-05-15T13:21:32+08:00</updated>
+  <id>http://www.wugaojun.com/</id>
   <author>
     <name><![CDATA[吴高君]]></name>
     
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[如何搭建基于Github的Octopress博客]]></title>
-    <link href="http://blog.wugaojun.com/blog/ru-he-da-jian-ji-yu-githubde-octopressbo-ke/"/>
+    <link href="http://www.wugaojun.com/blog/ru-he-da-jian-ji-yu-githubde-octopressbo-ke/"/>
     <updated>2015-05-11T13:08:49+08:00</updated>
-    <id>http://blog.wugaojun.com/blog/ru-he-da-jian-ji-yu-githubde-octopressbo-ke</id>
+    <id>http://www.wugaojun.com/blog/ru-he-da-jian-ji-yu-githubde-octopressbo-ke</id>
     <content type="html"><![CDATA[<p><a href="http://octopress.org/">http://octopress.org/</a></p>
 
 <p><a href="http://blog.devtang.com/blog/2012/02/10/setup-blog-based-on-github/">http://blog.devtang.com/blog/2012/02/10/setup-blog-based-on-github/</a></p>

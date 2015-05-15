@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
   <title><![CDATA[GJ's Blog]]></title>
-  <link href="http://blog.wugaojun.com/atom.xml" rel="self"/>
-  <link href="http://blog.wugaojun.com/"/>
-  <updated>2015-05-15T13:19:25+08:00</updated>
-  <id>http://blog.wugaojun.com/</id>
+  <link href="http://www.wugaojun.com/atom.xml" rel="self"/>
+  <link href="http://www.wugaojun.com/"/>
+  <updated>2015-05-15T13:21:32+08:00</updated>
+  <id>http://www.wugaojun.com/</id>
   <author>
     <name><![CDATA[吴高君]]></name>
     
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[学习资料整理]]></title>
-    <link href="http://blog.wugaojun.com/blog/xue-xi-zi-liao-zheng-li/"/>
+    <link href="http://www.wugaojun.com/blog/xue-xi-zi-liao-zheng-li/"/>
     <updated>2015-05-14T10:15:18+08:00</updated>
-    <id>http://blog.wugaojun.com/blog/xue-xi-zi-liao-zheng-li</id>
+    <id>http://www.wugaojun.com/blog/xue-xi-zi-liao-zheng-li</id>
     <content type="html"><![CDATA[<ul id="markdown-toc">
   <li><a href="#section" id="markdown-toc-section">1.动画</a></li>
 </ul>
@@ -39,9 +39,9 @@
   
   <entry>
     <title type="html"><![CDATA[如何搭建基于Github的Octopress博客]]></title>
-    <link href="http://blog.wugaojun.com/blog/ru-he-da-jian-ji-yu-githubde-octopressbo-ke/"/>
+    <link href="http://www.wugaojun.com/blog/ru-he-da-jian-ji-yu-githubde-octopressbo-ke/"/>
     <updated>2015-05-11T13:08:49+08:00</updated>
-    <id>http://blog.wugaojun.com/blog/ru-he-da-jian-ji-yu-githubde-octopressbo-ke</id>
+    <id>http://www.wugaojun.com/blog/ru-he-da-jian-ji-yu-githubde-octopressbo-ke</id>
     <content type="html"><![CDATA[<p><a href="http://octopress.org/">http://octopress.org/</a></p>
 
 <p><a href="http://blog.devtang.com/blog/2012/02/10/setup-blog-based-on-github/">http://blog.devtang.com/blog/2012/02/10/setup-blog-based-on-github/</a></p>
@@ -55,9 +55,9 @@
   
   <entry>
     <title type="html"><![CDATA[Swift之UITableView的使用]]></title>
-    <link href="http://blog.wugaojun.com/blog/ru-he-da-jian-bo-ke/"/>
+    <link href="http://www.wugaojun.com/blog/ru-he-da-jian-bo-ke/"/>
     <updated>2015-05-01T14:24:20+08:00</updated>
-    <id>http://blog.wugaojun.com/blog/ru-he-da-jian-bo-ke</id>
+    <id>http://www.wugaojun.com/blog/ru-he-da-jian-bo-ke</id>
     <content type="html"><![CDATA[<ul id="markdown-toc">
   <li><a href="#tableview" id="markdown-toc-tableview">1.创建tableView</a></li>
   <li><a href="#section" id="markdown-toc-section">2.准备假数据</a></li>
@@ -194,7 +194,7 @@
 
 <p>至此，可以编译运行看看效果了.</p>
 
-<p><img src="http://blog.wugaojun.com/images/2015-05-11-ru-he-da-jian-bo-ke/swift_example_result_1.png" width="160" height="300" /></p>
+<p><img src="http://www.wugaojun.com/images/2015-05-11-ru-he-da-jian-bo-ke/swift_example_result_1.png" width="160" height="300" /></p>
 
 <h2 id="section-2">4.增加左滑删除功能</h2>
 

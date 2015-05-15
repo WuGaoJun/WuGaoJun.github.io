@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
   <title><![CDATA[Category: Swift | GJ's Blog]]></title>
-  <link href="http://blog.wugaojun.com/blog/categories/swift/atom.xml" rel="self"/>
-  <link href="http://blog.wugaojun.com/"/>
-  <updated>2015-05-15T13:19:25+08:00</updated>
-  <id>http://blog.wugaojun.com/</id>
+  <link href="http://www.wugaojun.com/blog/categories/swift/atom.xml" rel="self"/>
+  <link href="http://www.wugaojun.com/"/>
+  <updated>2015-05-15T13:21:32+08:00</updated>
+  <id>http://www.wugaojun.com/</id>
   <author>
     <name><![CDATA[吴高君]]></name>
     
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[Swift之UITableView的使用]]></title>
-    <link href="http://blog.wugaojun.com/blog/ru-he-da-jian-bo-ke/"/>
+    <link href="http://www.wugaojun.com/blog/ru-he-da-jian-bo-ke/"/>
     <updated>2015-05-01T14:24:20+08:00</updated>
-    <id>http://blog.wugaojun.com/blog/ru-he-da-jian-bo-ke</id>
+    <id>http://www.wugaojun.com/blog/ru-he-da-jian-bo-ke</id>
     <content type="html"><![CDATA[<ul id="markdown-toc">
   <li><a href="#tableview" id="markdown-toc-tableview">1.创建tableView</a></li>
   <li><a href="#section" id="markdown-toc-section">2.准备假数据</a></li>
